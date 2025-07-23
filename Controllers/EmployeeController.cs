@@ -68,7 +68,10 @@ namespace EmployeeAPI.Controllers
         {
             var emp = lstemp.FirstOrDefault(x => x.Id == id);
             if (emp == null)
+            {
                 return BadRequest("Employee not found");
+            }
+                
             lstemp.Remove(emp);
             return Ok(new { Message = "Employee deleted successfully" });
         }
